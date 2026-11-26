@@ -1,0 +1,21 @@
+<%- include('partials/headers') %>
+
+<main>
+    <h1><%= title %></h1>
+    <p><a href="/rooms/add">Add room</a></p>
+    <% if (rooms.length === 0) { %>
+        <p>There are no rooms available at the moment.</p>
+    <% } %>
+        <% for (let i=0; i < rooms.length; i++) { %>
+        <article>
+            <h2><%= rooms[i].name %></h2>
+            <p><%= rooms[i].building %>, Room <%= rooms[i].roomNumber %></p>
+        <p>Seats: <%= rooms[i].capacity %></p>
+        <p>Noise Level: <%= rooms[i].noiseLevel %></p>
+        <p>Status: <%= rooms[i].available ? 'Available' : 'In use' %></p>
+
+        </article>
+        <% } %>
+</main>
+
+<%- include('partials/footer') %>

@@ -7,11 +7,21 @@
         <p>There are no rooms available at the moment.</p>
     <% } %>
         <% for (let i=0; i < rooms.length; i++) { %>
-        <article>
+        <article class="room-door">
             <h2><%= rooms[i].name %></h2>
             <p><%= rooms[i].building %>, Room <%= rooms[i].roomNumber %></p>
         <p>Seats: <%= rooms[i].capacity %></p>
-        <p>Noise Level: <%= rooms[i].noiseLevel %></p>
+        <p class="door-sign">
+            <% if (rooms[i].noiseLevel === 'Quiet') { %>
+                <i class="fa-solid fa-volume-off" aria-hidden="true"></i>
+            <% } else if (rooms[i].noiseLevel === 'Moderate') { %>
+                <i class="fa-solid fa-volume-low" aria-hidden="true"></i>
+            <% } else if (rooms[i].noiseLevel === 'Loud') { %>
+                <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+            <% } %>
+            <%= rooms[i].noiseLevel %>
+            </p>
+            
         <p>Status: <%= rooms[i].available ? 'Available' : 'In use' %></p>
         
         <form action="/rooms/<%= rooms[i]._id %>/availability" method="post">

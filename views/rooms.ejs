@@ -2,7 +2,7 @@
 
 <main>
     <h1><%= title %></h1>
-    <p><a href="/rooms/add">Add room</a></p>
+    <p><a href="/rooms/add" class="btn btn-primary">Add room</a></p>
     <% if (rooms.length === 0) { %>
         <p>There are no rooms available at the moment.</p>
     <% } %>
@@ -13,7 +13,17 @@
         <p>Seats: <%= rooms[i].capacity %></p>
         <p>Noise Level: <%= rooms[i].noiseLevel %></p>
         <p>Status: <%= rooms[i].available ? 'Available' : 'In use' %></p>
-
+        
+        <form action="/rooms/<%= rooms[i]._id %>/availability" method="post">
+            <% if (rooms[i].available) { %>
+                <button type="submit" name="available" value="false">claim</button>
+            <% } else { %>
+                <button type="submit" name="available" value="true">unclaim</button>
+            <% } %>
+        </form>
+            <p><a href="/rooms/<%= rooms[i]._id %>/edit">Edit room</a></p>
+            <p><a href="/rooms/<%= rooms[i]._id %>/delete">Delete room</a></p>
+    
         </article>
         <% } %>
 </main>

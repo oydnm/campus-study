@@ -10,6 +10,9 @@ app.set('view engine', 'ejs');
 // make files in public avaialbe to the browser including the stylessheet
 app.use(express.static(path.join(__dirname, '../public')));
 
+// serve the bootstrap css files used by the sahred header
+app.use('/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')));
+
 // use the index router for all requests to the root of the site
 let indexRouter = require('../routes/index');
 app.use('/', indexRouter);

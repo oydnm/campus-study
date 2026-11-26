@@ -1,0 +1,39 @@
+<%- include('partials/headers') %>
+    <main>
+
+        <h1><%= title %></h1>
+        <form action ="/rooms/<%= room._id %>/edit" method="post">
+            <p>
+                <label for="name">Room Name:</label>
+                <input type="text" name="name" id="name" value="<%= room.name %>" required>
+            </p>
+            <p>
+                <label for="building">Building:</label>
+                <input type="text" name="building" id="building" value="<%= room.building %>" required>
+            </p>
+            <p>
+                <label for="roomNumber">Room Number:</label>
+                <input type="text" name="roomNumber" id="roomNumber" value="<%= room.roomNumber %>" required>
+            </p>
+            <p>
+                <label for="capacity">Capacity:</label>
+                <input type="number" name="capacity" id="capacity" min="1" max="24" value="<%= room.capacity %>" required>
+            </p>
+            <p>
+                <label for="noiseLevel">Noise Level:</label>
+                <select name="noiseLevel" id="noiseLevel" required>
+                    <option value="">choose a noise level</option>
+                    <option value="Quiet" <%= room.noiseLevel === 'Quiet' ? 'selected' : '' %>>Quiet</option>
+                    <option value="Moderate" <%= room.noiseLevel === 'Moderate' ? 'selected' : '' %>>Moderate</option>
+                    <option value="Loud" <%= room.noiseLevel === 'Loud' ? 'selected' : '' %>>Loud</option>
+                </select>
+            </p>
+            
+                <button type="submit">Save Room</button>
+                <a href="/rooms">Cancel</a>
+        
+
+            
+        </form>
+    </main>
+    <%- include('partials/footer') %>

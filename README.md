@@ -1,3 +1,6 @@
+# website link
+render link - https://campus-study-1-0v01.onrender.com/ 
+
 # Campus study rooms
 Campus study room is a piblic directory that helps students across campuse pick a study room by building, room number, capacity, noise level and availability. 
 
@@ -20,6 +23,11 @@ Bootstrap
  https://getbootstrap.com/ 
  used to provide styling for the button 
 
+Fontawesome
 https://fontawesome.com/ 
  used to provide icons for various parts of my project 
+
+Render 
+https://render.com/
+ used to host live website and deployment 
 
